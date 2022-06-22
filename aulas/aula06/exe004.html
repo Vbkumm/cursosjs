@@ -1,0 +1,32 @@
+<DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Nova pagina</title>
+            <script>
+                body{
+                    font: normal 5rem Arial; /* comentario css */
+                    
+                }
+            </script>
+        <!--comentario html -->
+        </head>
+        <body>
+            
+
+            <script>
+                var nome = window.prompt('Qual seu nome?') // comentario js
+                var n1 = window.prompt(`Entao, ${nome} diga um numero`)
+                document.write(`Ola ${nome} seu nome tem ${nome.length} letras</br>`)
+                document.write(`Seu nome maiusculo ${nome.toUpperCase()}</br>`)
+
+                
+                document.write(` ${nome} seu numero foi ${n1.toFixed(2).replace('.',',')}`)
+                document.write(` ${n1.toLocateString('pt-BR', {style: 'currency', currency: 'BRL'})}`)
+
+            </script>
+        </body>
+
+    </html>

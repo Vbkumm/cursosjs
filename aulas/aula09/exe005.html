@@ -1,0 +1,45 @@
+<DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Primeiros passos com DOM</title>
+            <style>
+                body{
+                    background-color: black;
+                    font: normal 5rem Arial; /* comentario css */
+                    color: white;
+                }
+            </style>
+        <!--comentario html -->
+        </head>
+        <body>
+            <h1>Primeiros passos com DOM </h1>
+            <p>Aqui vai o resultado</p>
+            <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+            <div id='msg'>Clique em mim</div>
+        
+
+            <script>
+                window.document.write(window.document.URl)
+                window.document.write(window.document.appName)
+                var p1 = window.document.getElementsByTagName('p')[0]
+                window.document.write('</br>Esta escrito assim: ' + p1.innerText)
+                p1.style.color = 'blue'
+                window.document.getElementsByTagName(p1.innerHTTL)
+                //window.alert(p1.innerText)
+                /*var d = window.document.getElementById('msg')
+                d.style.background = 'green'
+                d.innerText = 'Estou aguardando...'
+                
+                var s = window.document.getElementsByTagName('msgnova')[0]
+                s.innerText = 'Ola'
+                */
+                var d = window.document.querySelector('div#msg')// quando id representa por # se for class por .
+                d.style.background = 'blue'
+                
+            </script>
+        </body>
+
+    </html>

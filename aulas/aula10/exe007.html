@@ -1,0 +1,124 @@
+<DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Somando Valores</title>
+            <style>
+                body{
+                    background-color: black;
+                    font: normal 2rem Arial; /* comentario css */
+                    color: white;
+                }
+                input {
+                    font: normal 2rem Arial;
+                    width: 100px;
+                    margin-top: 20px;
+                }
+                div#res {
+                    margin-top: 20px;
+                }
+
+               
+            </style>
+        <!--comentario html -->
+        </head>
+        <body>
+            
+            <h1>Somando Valores:</h1>
+            <input type='number' name='txtn1' id='txtn1'> 
+            <div id='fator'> - </div>
+            <input type='number' name='txtn2' id='txtn2'>
+            </br>
+            <input type='button' value='Somar' id='somar'>
+            <input type='button' value='Subtrair' id='subtrair'>
+            <input type='button' value='Multiplicar' id='multiplicar'>
+            <input type='button' value='Divisão' id='divisao'>
+
+            <div id='res'>Resultado</div>
+
+
+            <script>
+                var fator = window.document.getElementById('fator')
+
+                var s = window.document.getElementById('somar')
+                s.addEventListener('click', somar)
+                s.addEventListener('mouseenter', to_somar)
+
+                var su = window.document.getElementById('subtrair')
+                su.addEventListener('click', subtrair)
+                su.addEventListener('mouseenter', to_subtrair)
+
+                var mu = window.document.getElementById('multiplicar')
+                mu.addEventListener('click', multiplicar)
+                mu.addEventListener('mouseenter', to_multiplicar)
+
+                var mu = window.document.getElementById('divisao')
+                mu.addEventListener('click', divisao)
+                mu.addEventListener('mouseenter', to_dividir)
+
+
+                var tn1 = window.document.getElementById('txtn1')
+                var tn2 = window.document.querySelector('input#txtn2')
+
+                function to_somar(){
+                    
+                    fator.innerText = '+'
+
+                }
+                
+
+                function somar(){
+                    
+                    var n1 = Number(tn1.value)
+                    var n2 = Number(tn2.value)  
+
+                    var som = n1 + n2
+                    res.innerHTML = `A soma entre ${n1} e ${n2} é igual a<strong> ${som}</strong>`
+                }
+
+                function to_subtrair(){
+                    
+                    fator.innerText = '-'
+
+                }
+
+                 function subtrair(){
+                    var n1 = Number(tn1.value)
+                    var n2 = Number(tn2.value)  
+
+                    var sub = n1 - n2
+                    res.innerHTML = `A subtração entre ${n1} e ${n2} é igual a<strong> ${sub}</strong>`
+                }
+
+                function to_multiplicar(){
+                    
+                    fator.innerText = 'X'
+
+                }
+                 function multiplicar(){
+                    var n1 = Number(tn1.value)
+                    var n2 = Number(tn2.value) 
+
+                    var mul = n1 * n2
+                    res.innerHTML = `A multiplicação entre ${n1} e ${n2} é igual a<strong> ${mul}</strong>`
+                }
+
+                function to_dividir(){
+                    
+                    fator.innerText = '/'
+
+                }
+                function divisao(){
+                    var n1 = Number(tn1.value)
+                    var n2 = Number(tn2.value) 
+
+                    var divi = n1 / n2
+                    res.innerHTML = `A divisão entre ${n1} e ${n2} é igual a<strong> ${divi}</strong>`
+                }
+
+            </script>
+        </body>
+
+    </html>

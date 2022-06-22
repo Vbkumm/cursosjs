@@ -1,0 +1,37 @@
+<DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Nova pagina</title>
+            <style>
+                body{
+                    background-color: blue;
+                    font: normal 2rem Arial;
+                    color: white;
+                }
+
+            </style>
+
+        </head>
+        <body>
+            <h1>Ola, mundo...</h1>
+
+            <script>
+                var n1 = Number.parseFloat(window.prompt('Digite um numero'))
+                var n2 = Number.parseFloat(window.prompt('Digite outro numero'))
+                var s = n1 + n2
+                window.alert(`A soma Ã© ${n1} mais ${n2} Ã© igual a ${s.toFixed(2).replace('.',',')}`)
+                window.alert(`Ã’ valor e ${s.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`)
+                window.alert(`Ã’ valor `+ String(s))
+                
+                // (number + number) para adiçao
+                // (string + string) para concatenacao
+                // n.toString() or String(n) converter para string
+               // Number() js escolhe float or int 
+               
+            </script>
+        </body>
+
+    </html>

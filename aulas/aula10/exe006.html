@@ -1,0 +1,67 @@
+<DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Eventos DOM</title>
+            <style>
+                body{
+                    background-color: black;
+                    font: normal 5rem Arial; /* comentario css */
+                    color: white;
+                }
+
+                div#area{
+                    background-color: green;
+                    color: white;
+                    with: 200px;
+                    height: 200px;
+                    line-height: 200px;
+                    line-with: 200px;
+                }
+
+            </style>
+        <!--comentario html -->
+        </head>
+        <body>
+            <!-- Para chamar um evento JS dentro da div
+            <div id='area' onclick="clicar()" onmouseenter='entrar()' onmouseout='sair()'> 
+            -->
+
+            <div id='area'>
+             
+                Interaja...
+            </div>
+
+
+            <script>
+                var a = window.document.getElementById('area')
+                
+                a.addEventListener('click', clicar)
+                a.addEventListener('mouseenter', entrar)
+                a.addEventListener('mouseout', sair)
+
+                function clicar(){
+                    
+                    a.innerText = 'Clicou!'
+                    a.style.background = 'blue'
+
+                }
+                function entrar(){
+                    
+                    a.innerText = 'Entrar!'
+                    a.style.background = 'green'
+
+                }
+                  function sair(){
+                    
+                    a.innerText = 'Sair!'
+                    a.style.background = 'red'
+
+                }
+
+            </script>
+        </body>
+
+    </html>
