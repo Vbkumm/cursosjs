@@ -1,4 +1,8 @@
-        var hours_day = [{ 'week_days': 0, 'start_hour': datetime.time(9, 0), 'end_hour': datetime.time(19, 0) }, { 'week_days': 0, 'start_hour': datetime.time(9, 0), 'end_hour': datetime.time(20, 0) }, { 'week_days': 0, 'start_hour': datetime.time(9, 0), 'end_hour': datetime.time(19, 0) }, { 'week_days': 0, 'start_hour': datetime.time(9, 0), 'end_hour': datetime.time(19, 0) }, { 'week_days': 0, 'start_hour': datetime.time(9, 0), 'end_hour': datetime.time(19, 0) }, { 'week_days': 2, 'start_hour': datetime.time(9, 0), 'end_hour': datetime.time(19, 0) }, { 'week_days': 2, 'start_hour': datetime.time(9, 0), 'end_hour': datetime.time(19, 0) }, { 'week_days': 2, 'start_hour': datetime.time(9, 0), 'end_hour': datetime.time(19, 0) }, { 'week_days': 2, 'start_hour': datetime.time(21, 0), 'end_hour': datetime.time(23, 0) }, { 'week_days': 3, 'start_hour': datetime.time(9, 0), 'end_hour': datetime.time(19, 0) }, { 'week_days': 4, 'start_hour': datetime.time(9, 0), 'end_hour': datetime.time(19, 0) }]
+        var hours_day = [[{ 'week_days': 0, 'hours': [{'start_hour': '09:00', 'end_hour': '20:00' }]}],
+                         [{ 'week_days': 2, 'hours': [{'start_hour': '09:00', 'end_hour': '19:00' }, {'start_hour': '21:00', 'end_hour': '23:00'}]}],
+                         [{ 'week_days': 3, 'hours': [{'start_hour': '09:00', 'end_hour': '19:00' }]}],
+                         [{ 'week_days': 4, 'hours': [{'start_hour': '09:00', 'end_hour': '19:00' }]}]]
+
         let address_js = 8;
         let hour_address = [hours_day, address_js];
 
@@ -7,13 +11,14 @@
         var getDays = function(arr) {
             if (typeof(arr) == 'object') {
                 for (let i = 0; i < arr.length; i++) {
-
                     if (arr[i].is_now != 'false') {
+                        
                         htmlElements += '<div>' + '<i class="far fa-clock" aria-hidden="true"></i>' + ' ' + arr[i].week_days + ':  ';
                         if (arr[i].hours) {
                             for (let f = 0; f < arr[i].hours.length; f++) {
-                                htmlElements += '  ' + arr[i].hours[f][0] + ' às ' + arr[i].hours[f][1] + "</div>";
+                                htmlElements += '  ' + arr[i].hours[f].start_hour + ' às ' + arr[i].hours[f].end_hour + "</div>";
                             }
+                            
                         }
                     }
                 }
@@ -27,8 +32,8 @@
                     getDays(arr[i]);
                 }
             }
-            window.alert
-
-            document.getElementById('populate-' + address).innerHTML = htmlElements;
+            console.log('doirsfs');
+            console.log(htmlElements);
+            console.log(address);
         }
         getDayHours(hour_address);
