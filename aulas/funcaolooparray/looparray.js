@@ -7,7 +7,7 @@ let hours_day = [{
     ]
 }, {
     "week_days": "Quarta-Feira",
-    "is_now": true,
+    "is_now": false,
     "hours": [
         ["09:00", "19:00"],
         ["21:00", "23:00"]
@@ -20,23 +20,26 @@ let hours_day = [{
     ]
 }, {
     "week_days": "Sexta-Feira",
-    "is_now": true,
+    "is_now": false,
     "hours": [
         ["09:00", "19:00"]
     ]
 }];
+
 let hour_address = [hours_day, address_js];
 
 
 let htmlElements = "";
+let htmlElementsTrue = "";
 var getDays = function(arr) {
     if (typeof(arr) == 'object') {
-        console.log(arr['week_days']);
         htmlElements += '<div>' + '<i class="far fa-clock" aria-hidden="true"></i>' + ' ' + arr['week_days'] + ':  ';
         for (let i = 0; i < arr['hours'].length; i++) {
 
             if (arr['is_now'] != 'false') {
                 htmlElements += '  ' + arr['hours'][i][0] + ' às ' + arr['hours'][i][1] + "</div>";
+            } else {
+                htmlElementsTrue += '  ' + arr['hours'][i][0] + ' às ' + arr['hours'][i][1] + "</div>";
             }
         }
     }
@@ -48,9 +51,12 @@ var getDayHours = function(hour_address) {
     if (typeof(arr) == 'object') {
         for (let i = 0; i < arr.length; i++) {
             getDays(arr[i]);
->>>>>>> fb8292806f5cefa65f6130da3e285a6654f01e37
+
         }
     }
     console.log(htmlElements);
+    console.log(htmlElementsTrue);
 }
+
+
 getDayHours(hour_address);
