@@ -1,39 +1,58 @@
-        var hours_day = [[{ 'week_days': 0, 'hours': [{'start_hour': '09:00', 'end_hour': '20:00' }]}],
-                         [{ 'week_days': 2, 'hours': [{'start_hour': '09:00', 'end_hour': '19:00' }, {'start_hour': '21:00', 'end_hour': '23:00'}]}],
-                         [{ 'week_days': 3, 'hours': [{'start_hour': '09:00', 'end_hour': '19:00' }]}],
-                         [{ 'week_days': 4, 'hours': [{'start_hour': '09:00', 'end_hour': '19:00' }]}]]
+let address_js = 8;
+let hours_day = [{
+    "week_days": "Segunda-Feira",
+    "is_now": false,
+    "hours": [
+        ["09:00", "20:00"]
+    ]
+}, {
+    "week_days": "Quarta-Feira",
+    "is_now": true,
+    "hours": [
+        ["09:00", "19:00"],
+        ["21:00", "23:00"]
+    ]
+}, {
+    "week_days": "Quinta-Feira",
+    "is_now": true,
+    "hours": [
+        ["09:00", "19:00"]
+    ]
+}, {
+    "week_days": "Sexta-Feira",
+    "is_now": true,
+    "hours": [
+        ["09:00", "19:00"]
+    ]
+}];
+let hour_address = [hours_day, address_js];
 
-        let address_js = 8;
-        let hour_address = [hours_day, address_js];
 
+let htmlElements = "";
+var getDays = function(arr) {
+    if (typeof(arr) == 'object') {
+        console.log(arr['week_days']);
+        htmlElements += '<div>' + '<i class="far fa-clock" aria-hidden="true"></i>' + ' ' + arr['week_days'] + ':  ';
 
-        let htmlElements = "";
-        var getDays = function(arr) {
-            if (typeof(arr) == 'object') {
-                for (let i = 0; i < arr.length; i++) {
-                    if (arr[i].is_now != 'false') {
-                        
-                        htmlElements += '<div>' + '<i class="far fa-clock" aria-hidden="true"></i>' + ' ' + arr[i].week_days + ':  ';
-                        if (arr[i].hours) {
-                            for (let f = 0; f < arr[i].hours.length; f++) {
-                                htmlElements += '  ' + arr[i].hours[f].start_hour + ' às ' + arr[i].hours[f].end_hour + "</div>";
-                            }
-                            
-                        }
-                    }
-                }
+        for (let i = 0; i < arr['hours'].length; i++) {
+
+            if (arr['is_now'] != 'false') {
+                htmlElements += '  ' + arr['hours'][i][0] + ' às ' + arr['hours'][i][1] + "</div>";
             }
         }
-        var getDayHours = function(hour_address) {
-            let arr = hour_address[0];
-            let address = hour_address[1];
-            if (typeof(arr) == 'object') {
-                for (let i = 0; i < arr.length; i++) {
-                    getDays(arr[i]);
-                }
-            }
-            console.log('doirsfs');
-            console.log(htmlElements);
-            console.log(address);
+    }
+}
+
+var getDayHours = function(hour_address) {
+    let arr = hour_address[0];
+    let address = hour_address[1];
+    if (typeof(arr) == 'object') {
+        for (let i = 0; i < arr.length; i++) {
+            getDays(arr[i]);
         }
-        getDayHours(hour_address);
+    }
+    console.log('doirsfs');
+    console.log(htmlElements);
+    console.log(address);
+}
+getDayHours(hour_address);
