@@ -33,13 +33,20 @@ let htmlElements = "";
 let htmlElementsTrue = "";
 var getDays = function(arr) {
     if (typeof(arr) == 'object') {
-        htmlElements += '<div>' + '<i class="far fa-clock" aria-hidden="true"></i>' + ' ' + arr['week_days'] + ':  ';
+        
+        if (!arr['is_now']) {
+            console.log(arr['is_now']);
+            htmlElements += '<div>' + '<i class="far fa-clock" aria-hidden="true"></i>' + ' ' + arr['week_days'] + ':  ';
+        } else {
+            
+            htmlElementsTrue += '<div> ABERTO'; 
+        }
         for (let i = 0; i < arr['hours'].length; i++) {
 
-            if (arr['is_now'] != 'false') {
-                htmlElements += '  ' + arr['hours'][i][0] + ' às ' + arr['hours'][i][1] + "</div>";
+            if (!arr['is_now']) {
+                htmlElements += ' ' + arr['hours'][i][0] + ' às ' + arr['hours'][i][1] + "</div>";
             } else {
-                htmlElementsTrue += '  ' + arr['hours'][i][0] + ' às ' + arr['hours'][i][1] + "</div>";
+                htmlElementsTrue += ' até ' + arr['hours'][i][1] + "</div>";
             }
         }
     }
