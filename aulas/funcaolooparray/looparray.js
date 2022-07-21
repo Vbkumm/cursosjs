@@ -33,24 +33,12 @@ var getDays = function(arr) {
     if (typeof(arr) == 'object') {
         console.log(arr['week_days']);
         htmlElements += '<div>' + '<i class="far fa-clock" aria-hidden="true"></i>' + ' ' + arr['week_days'] + ':  ';
-
         for (let i = 0; i < arr['hours'].length; i++) {
 
             if (arr['is_now'] != 'false') {
                 htmlElements += '  ' + arr['hours'][i][0] + ' às ' + arr['hours'][i][1] + "</div>";
             }
         }
-<<<<<<< HEAD
-        var getDayHours = function(hour_address) {
-            let arr = hour_address[0];
-            let address = hour_address[1];
-            if (typeof(arr) == 'object') {
-                for (let i = 0; i < arr.length; i++) {
-                    getDays(arr[i]);
-                }
-            }
-            console.log(htmlElements);
-=======
     }
 }
 
@@ -63,8 +51,6 @@ var getDayHours = function(hour_address) {
 >>>>>>> fb8292806f5cefa65f6130da3e285a6654f01e37
         }
     }
-    console.log('doirsfs');
     console.log(htmlElements);
-    console.log(address);
 }
 getDayHours(hour_address);
