@@ -32,8 +32,6 @@
                     getDays(arr[i]);
                 }
             }
-            console.log('doirsfs');
             console.log(htmlElements);
-            console.log(address);
         }
         getDayHours(hour_address);
