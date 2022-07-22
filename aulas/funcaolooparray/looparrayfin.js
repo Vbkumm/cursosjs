@@ -27,42 +27,39 @@ let hours_day = [{
 }];
 
 let hour_address = [hours_day, address_js];
-
-
 let htmlElements = "";
-let htmlElementsTrue = "";
+let htmlElementsUp = "";
 var getDays = function(arr) {
     if (typeof(arr) == 'object') {
-        
+        htmlElements += '<div>' + ' ' + arr['week_days'] + ':  ';
         if (!arr['is_now']) {
-            htmlElements += '<div>' + '<i class="far fa-clock" aria-hidden="true"></i>' + ' ' + arr['week_days'] + ':  ';
+            if (!htmlElementsUp == 'ABERTO'){
+                htmlElementsUp = 'FECHADO';
+            }
         } else {
+            htmlElementsUp = 'ABERTO';
+            if (htmlElementsUp.indexOf('FECHADO')){
+                htmlElementsUp = [htmlElementsUp].filter(e => e !== 'FECHADO');
+            }
             
-            htmlElementsTrue += '<div> ABERTO'; 
         }
         for (let i = 0; i < arr['hours'].length; i++) {
-
-            if (!arr['is_now']) {
-                htmlElements += ' ' + arr['hours'][i][0] + ' às ' + arr['hours'][i][1] + "</div>";
-            } else {
-                htmlElementsTrue += ' até ' + arr['hours'][i][1] + "</div>";
+            htmlElements += '<i class="far fa-clock" aria-hidden="true"></i> ' + arr['hours'][i][0] + ' às ' + arr['hours'][i][1] + "</div>";
+            if (arr['is_now']) {
+                htmlElementsUp += ' '  + ' até ' + arr['hours'][i][1] + "</div>";
             }
         }
     }
 }
-
 var getDayHours = function(hour_address) {
     let arr = hour_address[0];
     let address = hour_address[1];
     if (typeof(arr) == 'object') {
         for (let i = 0; i < arr.length; i++) {
             getDays(arr[i]);
-
         }
     }
+    console.log(htmlElementsUp);
     console.log(htmlElements);
-    console.log(htmlElementsTrue);
 }
-
-
 getDayHours(hour_address);
