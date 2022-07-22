@@ -31,7 +31,7 @@ let htmlElements = "";
 let htmlElementsUp = "";
 var getDays = function(arr) {
     if (typeof(arr) == 'object') {
-        htmlElements += '<div>' + ' ' + arr['week_days'] + ':  ';
+        htmlElements += ' ' + arr['week_days'] + ':  ';
         if (!arr['is_now']) {
             if (!htmlElementsUp == 'ABERTO'){
                 htmlElementsUp = 'FECHADO';
@@ -44,10 +44,16 @@ var getDays = function(arr) {
             
         }
         for (let i = 0; i < arr['hours'].length; i++) {
-            htmlElements += '<i class="far fa-clock" aria-hidden="true"></i> ' + arr['hours'][i][0] + ' às ' + arr['hours'][i][1] + "</div>";
+            
             if (arr['is_now']) {
-                htmlElementsUp += ' '  + ' até ' + arr['hours'][i][1] + "</div>";
+                htmlElementsUp += ' até ' + arr['hours'][i][1];
             }
+            
+            if (i > 0) {
+                console.log(i)
+                htmlElements += ' e ';
+            }
+            htmlElements += arr['hours'][i][0] + ' às ' + arr['hours'][i][1];
         }
     }
 }
